@@ -20,13 +20,12 @@
   },
   "homepage": "https://github.com/MaratLatypov/project-lvl1-s160#readme",
   "devDependencies": {
-    "babel-cli": "*",
-    "babel-core": "*",
-    "babel-preset-env": "*",
-    "babel-preset-stage-0": "*"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1"
   },
   "bin": {
-  "brain-games": "dist/bin/brain-games.js"
-}
-
+    "brain-games": "dist/bin/brain-games.js"
+  }
 }

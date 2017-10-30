@@ -1,6 +1,6 @@
 {
   "name": "project-lvl1-s160-ff",
-  "version": "0.0.3",
+  "version": "0.0.32",
   "description": "The Project Description",
   "main": "index.js",
   "scripts": {
@@ -27,5 +27,8 @@
   },
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.7"
   }
 }

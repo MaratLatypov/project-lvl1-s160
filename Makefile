@@ -1,6 +1,6 @@
 install: 
 	npm install
 start:
-	npm run babel-node /home/marat/project/src/bin/brain-games.js
+	npm run babel-node /home/marat/project-lvl1-s160/src/bin/brain-games.js
 publish:
 	npm publish

@@ -5,4 +5,4 @@ start:
 publish:
 	npm publish
 lint:
-	npm run eslint /home/marat/project-lvl1-s160/
+	npm run eslint .

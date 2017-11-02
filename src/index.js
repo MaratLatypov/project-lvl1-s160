@@ -21,6 +21,21 @@ const EvenGame = () => {
   return cons(r, ((r % 2 === 0) ? 'yes' : 'no'));
 };
 
+const Gcd = () => {
+  const x = random(20);
+  const y = random(30);
+  const iter = (a, b, i, j) => {
+    if ((a < i) || (b < i)) {
+      return cons(`${a} ${b}`, `${j}`);
+    }
+    if ((x % i === 0) && (y % i === 0)) {
+      return iter(a, b, i + 1, i);
+    }
+    return iter(a, b, i + 1, j);
+  };
+  return iter(x, y, 1, 0);
+};
+
 const play = (x, acc, f) => {
   if (acc === 3) {
     return console.log(`Congratulations, ${x}!`);
@@ -55,4 +70,10 @@ export const brainGames = () => {
   console.log('Welcome to the Brain Games! \n');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
+};
+export const brainGcd = () => {
+  console.log('Welcome to the Brain Games! \n');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+  play(name, 0, Gcd);
 };

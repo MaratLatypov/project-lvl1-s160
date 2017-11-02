@@ -6,6 +6,8 @@ start2:
 	npm run babel-node -- 'src/games/brain-even.js'
 start3:
 	npm run babel-node -- 'src/games/brain-calc.js'
+start4:
+	npm run babel-node -- 'src/games/brain-gcd.js'
 publish:
 	npm publish
 lint:

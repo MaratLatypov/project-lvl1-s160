@@ -32,10 +32,12 @@
     "jest": "^21.2.1"
   },
   "bin": {
+    "brain-calc": "dist/bin/brain-games.js",
     "brain-games": "dist/bin/brain-games.js",
-    "brain-even" : "dist/bin/brain-even.js"
+    "brain-even": "dist/bin/brain-even.js"
   },
   "dependencies": {
+    "hexlet-pairs": "^1.0.5",
     "readline-sync": "^1.4.7"
   }
 }

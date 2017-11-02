@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import { cons, car, cdr } from 'hexlet-pairs';
 
-const random = (x) => { Math.floor((Math.random() * x) + 1); };
+const random = x => Math.floor((Math.random() * x) + 1);
 
 const Calc = () => {
   const r1 = random(10);

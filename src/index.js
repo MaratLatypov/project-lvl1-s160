@@ -18,7 +18,7 @@ const play = (userName, acc, funcGame) => {
   return play(userName, acc + 1, funcGame);
 };
 
-export const brainGames = (gameName, funGame) => {
+const brainGames = (gameName, funGame) => {
   const greeting = 'Welcome to the Brain Games!';
   const userName = () => readlineSync.question('May I have your name? ');
   if (gameName !== undefined) {
@@ -30,5 +30,4 @@ export const brainGames = (gameName, funGame) => {
   console.log(`${greeting}\n`);
   return console.log(`Hello, ${userName()}!\n`);
 };
-
-export default play;
+export default brainGames;

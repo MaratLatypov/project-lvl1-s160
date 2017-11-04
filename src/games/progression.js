@@ -1,27 +1,26 @@
 import { cons } from 'hexlet-pairs';
 import { random } from './even';
-import { brainGames } from '..';
+import brainGames from '..';
 
-const progression = (d, l, a1, empty) => {
-  const iter = (i, acc, answer) => {
-    if ((i === l) && (i === empty)) {
-      return cons((`${acc}..`), (`${a1 + (d * (i - 1))}`));
-    } else if (i === l) {
-      const spis = acc + (a1 + (d * (i - 1)));
-      return cons(spis, answer);
-    } else if (i === empty) {
-      return iter(i + 1, (`${acc}.. `), (`${a1 + (d * (i - 1))}`));
+const progression = (delta, firstMemb, changeMemb) => {
+  let hiddenMemb = '';
+  let acc = '';
+  const iter = (i) => {
+    if (i === changeMemb) {
+      hiddenMemb = firstMemb + (delta * (i - 1));
+      acc += '.. ';
+      return iter(i + 1, acc);
+    } else if (i === 11) {
+      return cons(`${acc}`, `${hiddenMemb}`);
     }
-    return iter(i + 1, (`${acc} ${a1 + (d * (i - 1))} `), answer);
+    acc += `${firstMemb + (delta * (i - 1))} `;
+    return iter(i + 1);
   };
-  return iter(1, '', '');
+  return iter(1, '');
 };
 
 export const progressionGame = () => {
-  const delta = random(12);
-  const a1 = random(100);
-  const pass = random(9);
-  const content = progression(delta, 10, a1, pass);
+  const content = progression(random(10), random(99), random(10));
   return content;
 };
 export const brainProgression = () => {

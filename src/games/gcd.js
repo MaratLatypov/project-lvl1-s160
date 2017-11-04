@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import { random } from './even';
-import { brainGames } from '..';
+import brainGames from '..';
 
 const gcd = (x, y) => {
   const iter = (a, b, i, j) => {

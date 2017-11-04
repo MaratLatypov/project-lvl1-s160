@@ -1,40 +1,6 @@
 import readlineSync from 'readline-sync';
-import { cons, car, cdr } from 'hexlet-pairs';
+import { car, cdr } from 'hexlet-pairs';
 
-const random = x => Math.floor((Math.random() * x) + 1);
-
-const Calc = () => {
-  const r1 = random(10);
-  const r2 = random(10);
-  switch (random(3)) {
-    case 1:
-      return cons((`${r1}*${r2}`), `${r1 * r2}`);
-    case 2:
-      return cons((`${r1}-${r2}`), `${r1 - r2}`);
-    default:
-      return cons((`${r1}+${r2}`), `${r1 + r2}`);
-  }
-};
-
-const EvenGame = () => {
-  const r = random(100);
-  return cons(r, ((r % 2 === 0) ? 'yes' : 'no'));
-};
-
-const Gcd = () => {
-  const x = random(20);
-  const y = random(30);
-  const iter = (a, b, i, j) => {
-    if ((a < i) || (b < i)) {
-      return cons(`${a} ${b}`, `${j}`);
-    }
-    if ((x % i === 0) && (y % i === 0)) {
-      return iter(a, b, i + 1, i);
-    }
-    return iter(a, b, i + 1, j);
-  };
-  return iter(x, y, 1, 0);
-};
 
 const play = (x, acc, f) => {
   if (acc === 3) {
@@ -52,28 +18,15 @@ const play = (x, acc, f) => {
   return play(x, acc + 1, f);
 };
 
-export const brainEven = () => {
-  console.log('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no".');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  play(name, 0, EvenGame);
+export const brainGames = (x, fun) => {
+  const greeting = 'Welcome to the Brain Games!';
+  const name = () => readlineSync.question('May I have your name? ');
+  if (x !== undefined) {
+    console.log(`${greeting}\n${x}\n`);
+    return play(name(), 0, fun);
+  }
+  console.log(`${greeting}\n`);
+  return console.log(`Hello, ${name()}!\n`);
 };
 
-export const brainCalc = () => {
-  console.log('Welcome to the Brain Games!\nWhat is the result of the expression?');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  play(name, 0, Calc);
-};
-
-export const brainGames = () => {
-  console.log('Welcome to the Brain Games! \n');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-};
-export const brainGcd = () => {
-  console.log('Welcome to the Brain Games! \n');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  play(name, 0, Gcd);
-};
+export default play;

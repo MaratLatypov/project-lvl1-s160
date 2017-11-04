@@ -2,33 +2,32 @@ import { cons } from 'hexlet-pairs';
 import { random } from './even';
 import { brainGames } from '..';
 
-const numberOfDigits = x => Number(`${x}`.length);
-const sumOfTheNumb = (x) => {
-  const simv = `${x}`;
-  const n = numberOfDigits(x);
+const numberOfDigitsIn = x => Number(`${x}`.length);
+const sumOfThe = (x) => {
+  const stringNum = `${x}`;
+  const n = numberOfDigitsIn(x);
   const iter = (i, acc) => {
     if (i >= n) {
       return acc;
     }
-    return iter(i + 1, (acc + Number(simv[i])));
+    return iter(i + 1, (acc + Number(stringNum[i])));
   };
   return iter(0, 0);
 };
 
 export const balanceGame = () => {
   const number = random(10000);
-  const a = sumOfTheNumb(number);
-  const b = numberOfDigits(number);
   const iter = (sum, n, acc) => {
     if (n === 0) {
-      return cons(number, acc);
+      const content = cons(number, acc);
+      return content;
     }
     const bb = Math.floor(sum / n);
     return iter(sum - bb, n - 1, acc + bb);
   };
-  return iter(a, b, '');
+  return iter(sumOfThe(number), numberOfDigitsIn(number), '');
 };
 
 export const brainBalance = () => {
-  brainGames('What is the result of the expression?', balanceGame);
+  brainGames('Balance the given number.', balanceGame);
 };

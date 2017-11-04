@@ -14,20 +14,22 @@ const sumOfThe = (x) => {
   };
   return iter(0, 0);
 };
-
-export const balanceGame = () => {
-  const number = random(10000);
+const balance = (x) => {
   const iter = (sum, n, acc) => {
     if (n === 0) {
-      const content = cons(number, acc);
-      return content;
+      return acc;
     }
     const bb = Math.floor(sum / n);
     return iter(sum - bb, n - 1, acc + bb);
   };
-  return iter(sumOfThe(number), numberOfDigitsIn(number), '');
+  return iter(sumOfThe(x), numberOfDigitsIn(x), '');
 };
 
+export const balanceGame = () => {
+  const number = random(10000);
+  const content = cons(number, balance(number));
+  return content;
+};
 export const brainBalance = () => {
   brainGames('Balance the given number.', balanceGame);
 };

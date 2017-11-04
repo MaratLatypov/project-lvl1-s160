@@ -1,6 +1,6 @@
 {
   "name": "project-lvl1-s160-ff",
-  "version": "0.0.55",
+  "version": "0.0.58",
   "description": "The Project Description",
   "main": "index.js",
   "scripts": {
@@ -36,7 +36,8 @@
     "brain-even": "dist/bin/brain-even.js",
     "brain-calc": "dist/bin/brain-calc.js",
     "brain-gcd": "dist/bin/brain-gcd.js",
-    "brain-balance": "dist/bin/brain-balance.js"
+    "brain-balance": "dist/bin/brain-balance.js",
+    "brain-progression":"dist/bin/brain-progression.js"
   },
   "dependencies": {
     "hexlet-pairs": "^1.0.5",

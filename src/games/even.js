@@ -6,13 +6,13 @@ export const random = x => Math.floor((Math.random() * x) + 1);
 const evenGame = () => {
   const r = random(100);
   const isEven = x => x % 2 === 0;
-  const boolInWords = (x) => {
+  const getCorrectAnswer = (x) => {
     if (x === true) {
       return 'yes';
     }
     return 'no';
   };
-  const content = cons(r, boolInWords(isEven(r)));
+  const content = cons(r, getCorrectAnswer(isEven(r)));
   return content;
 };
 

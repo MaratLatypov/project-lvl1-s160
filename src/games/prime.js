@@ -6,7 +6,7 @@ const isPrime = (x) => {
   let acc = 0;
   const iter = (i) => {
     if ((i > x) || (acc >= 2)) {
-      return acc >= 2;
+      return acc < 2;
     }
     if (x % i === 0) {
       acc += 1;

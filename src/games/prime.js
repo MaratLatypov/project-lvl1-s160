@@ -3,18 +3,16 @@ import { random, getCorrectAnswer } from './even';
 import brainGames from '..';
 
 const isPrime = (x) => {
-  let acc = 0;
-  const iter = (i) => {
-    if ((i > x) || (acc >= 2)) {
+  const iter = (i, acc) => {
+    if ((acc >= 2) || (i === x)) {
       return acc < 2;
     }
     if (x % i === 0) {
-      acc += 1;
-      return iter(i + 1);
+      iter(i + 1, acc + 1);
     }
-    return iter(i + 1);
+    return iter(i + 1, acc);
   };
-  return iter(2);
+  return iter(1, 0);
 };
 
 const primeGame = () => {
@@ -24,7 +22,7 @@ const primeGame = () => {
 };
 
 const brainPrime = () => {
-  brainGames('Is it a simple number?', primeGame);
+  brainGames('Is this a prime number?', primeGame);
 };
 
 export default brainPrime;

@@ -20,7 +20,7 @@ const progression = (delta, firstMemb, changeMemb) => {
 };
 
 export const progressionGame = () => {
-  const content = progression(random(10), random(99), random(10));
+  const content = progression(random(10, 1), random(99, 1), random(10, 1));
   return content;
 };
 export const brainProgression = () => {

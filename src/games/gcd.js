@@ -16,8 +16,8 @@ const gcd = (x, y) => {
 };
 
 export const gcdGame = () => {
-  const r1 = random(20);
-  const r2 = random(30);
+  const r1 = random(20, 1);
+  const r2 = random(40, 20);
   const content = cons(`${r1} ${r2}`, `${gcd(r1, r2)}`);
   return content;
 };

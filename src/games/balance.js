@@ -26,7 +26,7 @@ const balance = (x) => {
 };
 
 export const balanceGame = () => {
-  const number = random(10000);
+  const number = random(10000, 1);
   const content = cons(number, balance(number));
   return content;
 };

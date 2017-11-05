@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
 
-const brainGames = (rules, func) => {
+const brainGames = (rules, game) => {
   console.log('Welcome to the Brain Games!');
   if (rules === undefined) {
     const usName = readlineSync.question('\nMay I have your name? ');
@@ -15,7 +15,7 @@ const brainGames = (rules, func) => {
     if (acc === 3) {
       return console.log(`Congratulations, ${usName}!`);
     }
-    const content = func();
+    const content = game();
     const question = car(content);
     console.log(`Question: ${question}`);
     const userAnsw = readlineSync.question('Your answer: ');

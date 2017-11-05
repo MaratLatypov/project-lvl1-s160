@@ -9,14 +9,14 @@ const progression = (delta, firstMemb, changeMemb) => {
     if (i === changeMemb) {
       hiddenMemb = firstMemb + (delta * (i - 1));
       acc += '.. ';
-      return iter(i + 1, acc);
+      return iter(i + 1);
     } else if (i === 11) {
       return cons(`${acc}`, `${hiddenMemb}`);
     }
     acc += `${firstMemb + (delta * (i - 1))} `;
     return iter(i + 1);
   };
-  return iter(1, '');
+  return iter(1);
 };
 
 export const progressionGame = () => {

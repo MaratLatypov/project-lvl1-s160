@@ -24,7 +24,7 @@ const primeGame = () => {
 };
 
 const brainPrime = () => {
-  brainGames('Answer "yes" or "no".', primeGame);
+  brainGames('Is it a simple number?', primeGame);
 };
 
 export default brainPrime;

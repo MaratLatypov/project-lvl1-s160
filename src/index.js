@@ -2,32 +2,31 @@ import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
 
-const play = (userName, acc, funcGame) => {
-  if (acc === 3) {
-    return console.log(`Congratulations, ${userName}!`);
+const brainGames = (rules, func) => {
+  console.log('Welcome to the Brain Games!');
+  if (rules === undefined) {
+    const usName = readlineSync.question('\nMay I have your name? ');
+    return console.log(`Hello, ${usName}!`);
   }
-  const content = funcGame();
-  const question = car(content);
-  console.log(`Question: ${question}`);
-  const userAnsw = readlineSync.question('Your answer: ');
-  const trueAnsw = cdr(content);
-  if (userAnsw !== trueAnsw) {
-    return console.log(`'${userAnsw}' is wrong answer ;(. Correct answer was '${trueAnsw}'.\nLet's try again, ${userName}!`);
-  }
-  console.log('Correct!');
-  return play(userName, acc + 1, funcGame);
+  console.log(`${rules}`);
+  const usName = readlineSync.question('\nMay I have your name? ');
+  console.log(`Hello, ${usName}!\n`);
+  const iter = (acc) => {
+    if (acc === 3) {
+      return console.log(`Congratulations, ${usName}!`);
+    }
+    const content = func();
+    const question = car(content);
+    console.log(`Question: ${question}`);
+    const userAnsw = readlineSync.question('Your answer: ');
+    const trueAnsw = cdr(content);
+    if (userAnsw !== trueAnsw) {
+      return console.log(`'${userAnsw}' is wrong answer ;(. Correct answer was '${trueAnsw}'.\nLet's try again, ${usName}!`);
+    }
+    console.log('Correct!');
+    return iter(acc + 1);
+  };
+  return iter(0);
 };
 
-const brainGames = (gameName, funGame) => {
-  const greeting = 'Welcome to the Brain Games!';
-  const userName = () => readlineSync.question('May I have your name? ');
-  if (gameName !== undefined) {
-    console.log(`${greeting}\n${gameName}\n`);
-    const usName = userName();
-    console.log(`Hello, ${usName}!\n`);
-    return play(usName, 0, funGame);
-  }
-  console.log(`${greeting}\n`);
-  return console.log(`Hello, ${userName()}!\n`);
-};
 export default brainGames;

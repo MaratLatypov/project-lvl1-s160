@@ -3,16 +3,15 @@ import { random, getCorrectAnswer } from './even';
 import brainGames from '..';
 
 const isPrime = (x) => {
-  let acc = 0;
-  const iter = (i) => {
+  const iter = (i, acc) => {
     if ((acc >= 2) || (i === x)) {
       return acc < 2;
     } if (x % i === 0) {
-      acc += 1;
+      return iter(i + 1, acc + 1);
     }
     return iter(i + 1, acc);
   };
-  return iter(1);
+  return iter(1, 0);
 };
 
 const primeGame = () => {

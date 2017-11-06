@@ -15,7 +15,7 @@ const isPrime = (x) => {
 };
 
 const primeGame = () => {
-  const r = random(100, 3);
+  const r = random(100, 2);
   const content = cons(r, getCorrectAnswer(isPrime(r)));
   return content;
 };
